@@ -1,0 +1,18 @@
+.search-input {
+    background-size: 40px 40px;
+    /* Default size for larger screens */
+}
+
+@media (max-width: 1024px) {
+    .search-input {
+        background-size: 30px 30px;
+        /* Adjust size for tablets and small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-input {
+        background-size: 25px 25px;
+        /* Adjust size for mobile devices */
+    }
+}

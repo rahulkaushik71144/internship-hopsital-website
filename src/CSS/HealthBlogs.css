@@ -1,0 +1,15 @@
+.custom-next,
+.custom-prev {
+    cursor: pointer;
+
+}
+
+.custom-next {
+    margin-left: auto;
+    /* Align next button to the right */
+}
+
+.custom-prev {
+    margin-right: auto;
+    /* Align prev button to the left */
+}
