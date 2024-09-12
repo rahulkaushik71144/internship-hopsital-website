@@ -36,7 +36,7 @@ const StickyPopup = () => {
 
           {/* WhatsApp Contact Button */}
           <a
-            href="https://wa.me/1234567890" // Replace with your WhatsApp number
+            href="https://wa.me/7015617821" // Replace with your WhatsApp number
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ml-2"
