@@ -5,6 +5,7 @@ import Specialities from "../components/Specialities";
 import Hospitals from "../components/Hospitals";
 import Footer from "../components/Footer";
 import HealthBlogs from "../components/HealthBlogs";
+import StickyPopup from "../components/StickyPopup";
 
 const Homepage = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Homepage = () => {
 
   return (
     <div className="overflow-hidden">
+      <StickyPopup/>
       <Header />
       <Hero />
       <Specialities />
