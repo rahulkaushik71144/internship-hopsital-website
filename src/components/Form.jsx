@@ -1,5 +1,7 @@
+// Form.jsx
 import React from "react";
 import "../CSS/Form.css";
+import OurHospitals from "../constants/NavBar/our-hospitals";
 
 const Form = () => {
   return (
@@ -36,15 +38,30 @@ const Form = () => {
           <option value="" disabled selected>
             Preferred Hospital Location
           </option>
-          <option className="" value="location1">
-            Hospital Location 1
-          </option>
-          <option className="" value="location2">
-            Hospital Location 2
-          </option>
-          <option className="" value="location3">
-            Hospital Location 3
-          </option>
+          {OurHospitals.map((hospital) =>
+            hospital.children
+              ? hospital.children.map((items) =>
+                  items.children
+                    ? items.children.map((subitems) =>
+                        subitems.children ? (
+                          subitems.children.map((sub_subitems) => (
+                            <option
+                              key={sub_subitems.id}
+                              value={sub_subitems.id}
+                            >
+                              {sub_subitems.title}
+                            </option>
+                          ))
+                        ) : (
+                          <option key={subitems.id} value={subitems.id}>
+                            {subitems.title}
+                          </option>
+                        )
+                      )
+                    : null
+                )
+              : null
+          )}
         </select>
         <textarea
           placeholder="Describe Your Concern (Optional)"

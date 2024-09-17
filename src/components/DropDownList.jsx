@@ -18,7 +18,14 @@ const RecursiveList = ({ items, expanded, handleToggleExpand, level = 0 }) => {
     >
       {items.map(({ id, title, url, children }) => (
         <div key={id}>
-          <ListItem button onClick={() => handleToggleExpand(id)}>
+          <ListItem
+            button
+            onClick={() => handleToggleExpand(id)}
+            style={{
+              backgroundColor: expanded[id] ? "" : "transparent", // Change color when expanded
+              color: expanded[id] ? "	#FF69B4" : "#000", // Optional: Change text color
+            }}
+          >
             {/* Use an anchor tag for the URL */}
             <a
               href={url}

@@ -82,7 +82,7 @@ const HealthBlogs = () => {
           <div className="flex w-full">
             <div className="absolute  right-10 -top-8 lg:-left-12 lg:top-[45%]">
               <button className="custom-prev text-pink-500 text-[4rem] hover:textf-pink-600">
-                &lt;
+              &lt;
               </button>
             </div>
             <div className="absolute right-0 -top-8 lg:-right-10 lg:top-[45%]">

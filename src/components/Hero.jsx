@@ -40,7 +40,7 @@ const Hero = () => {
             cutting-edge technology.
           </p>
         </div>
-        <div className="lg:mr-[5rem] flex justify-center items-center">
+        <div className="lg:mr-[5rem] hidden lg:flex justify-center items-center">
           <Form />
         </div>
       </div>
