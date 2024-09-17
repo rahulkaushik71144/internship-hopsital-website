@@ -17,9 +17,10 @@ const Specialities = () => {
               <a href={speciality.url} className="rounded-lg">
                 <div
                   key={speciality.id}
-                  className="flex justify-center text-center items-center bg-white rounded-lg w-[200px] h-[200px] lg:w-[150px] lg:h-[150px]  xl:w-[200px] xl:h-[200px] p-4 shadow-2xl hover:shadow-inner-glow"
+                  className="flex flex-col  bg-white rounded-lg w-[200px] h-[200px] lg:w-[150px] lg:h-[150px]  xl:w-[200px] xl:h-[200px] shadow-2xl hover:shadow-inner-glow"
                 >
-                  {speciality.title}
+                  <img src={speciality.imgurl} className="object-cover" />
+                  <div className="text-center flex h-full justify-center items-center"><h1>{speciality.title}</h1></div>
                 </div>
               </a>
             ))}

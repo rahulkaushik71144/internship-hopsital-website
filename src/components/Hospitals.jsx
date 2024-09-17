@@ -64,8 +64,17 @@ const Hospitals = () => {
                         items.children.map((subitems) => (
                           <SwiperSlide key={subitems.id}>
                             <a href={subitems.url} className="rounded-lg">
-                              <div className="flex justify-center text-center items-center bg-white rounded-lg w-[200px] h-[200px] p-4 shadow-2xl hover:shadow-inner-glow">
-                                {subitems.title}
+                              <div
+                                key={subitems.id}
+                                className="flex flex-col  bg-white rounded-lg w-[200px] h-[200px] lg:w-[150px] lg:h-[150px]  xl:w-[200px] xl:h-[200px] shadow-2xl hover:shadow-inner-glow"
+                              >
+                                <img
+                                  src={subitems.imgsource}
+                                  className="object-cover"
+                                />
+                                <div className="text-center flex h-full justify-center items-center">
+                                  <h1>{subitems.title}</h1>
+                                </div>
                               </div>
                             </a>
                           </SwiperSlide>
