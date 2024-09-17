@@ -3,7 +3,7 @@ import icon1 from "../assets/Svg/icon1.svg";
 import { useNavigate } from "react-router-dom";
 import "../CSS/SearchBar.css";
 
-const BASE_URL = "http://192.168.156.209:5000";
+const BASE_URL = "http://localhost:5000";
 
 // Debounce function to limit the rate of API calls
 const debounce = (func, delay) => {
