@@ -160,7 +160,7 @@ const Search = () => {
                     >
                       <a
                         className="hover:border-b-2 border-pink-500"
-                        href="https://ujalacygnus.com/departments/oncology/"
+                        href={doctor.url}
                       >
                         {doctor.name} - {doctor.specialization}
                       </a>

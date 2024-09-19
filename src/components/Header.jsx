@@ -6,6 +6,10 @@ import OurHospitals from "../constants/NavBar/our-hospitals";
 import KeyProcedures from "../constants/NavBar/key-procedures";
 import BookApppointment from "../constants/NavBar/book-appointment";
 import About from "../constants/NavBar/about";
+import Blogs from "../constants/NavBar/blogs";
+import Government from "../constants/NavBar/government";
+import Media from "../constants/NavBar/media";
+import Contact from "../constants/NavBar/contact";
 
 const Header = () => {
   return (
@@ -19,14 +23,14 @@ const Header = () => {
           />
         </Link>
       </div>
-      <nav className="hidden z-40 w-full h-full lg:flex lg:justify-center lg:items-center gap-8 mx-[20rem] xl:mx-0">
+      <nav className="hidden z-40 w-full h-full lg:flex lg:justify-center lg:items-center lg:text-sm lg:gap-4 xl:gap-8 mx-[20rem] xl:mx-0">
         <div className="group">
           {OurSpecialities.map((speciality) => (
             <>
               <div className="cursor-pointer hover:text-pink-400 relative z-40">
                 <a href={speciality.url}>{speciality.title}</a>
               </div>
-              <div className="min-w-[100vw] hidden left-0 top-0 group-hover:flex absolute opacity-0 group-hover:opacity-100 bg-white p-8 rounded-b-xl shadow-xl z-30">
+              <div className="min-w-[100vw] hidden left-0 top-0 group-hover:flex justify-center absolute opacity-0 group-hover:opacity-100 bg-white p-8 rounded-b-xl shadow-xl z-30">
                 <ul className="columns-4 mt-[4rem]">
                   {speciality.children.map((item) => (
                     <li key={item.id} className="p-2 ">
@@ -112,11 +116,82 @@ const Header = () => {
             </div>
           ))}
         </div>
+       
+
+        <div className="group">
+          {Blogs.map((blog) => (
+            <>
+              <div className="cursor-pointer hover:text-pink-400 relative z-40">
+                <a href={blog.url}>{blog.title}</a>
+              </div>
+              <div className="min-w-[100vw] hidden left-0 top-0 group-hover:flex justify-center absolute opacity-0 group-hover:opacity-100 bg-white p-8 rounded-b-xl shadow-xl z-30">
+                <ul className="columns-4 mt-[4rem]">
+                  {blog.children.map((item) => (
+                    <li key={item.id} className="p-2 ">
+                      <a
+                        className="hover:text-pink-500 hover:border-b-2 hover:border-pink-500 text-md"
+                        href={item.url}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ))}
+        </div>
+        <div className="group">
+          {Government.map((government) => (
+            <>
+              <div className="cursor-pointer hover:text-pink-400 relative z-40">
+                <a href={government.url}>{government.title}</a>
+              </div>
+              <div className="min-w-[100vw] hidden left-0 top-0 group-hover:flex justify-center absolute opacity-0 group-hover:opacity-100 bg-white p-8 rounded-b-xl shadow-xl z-30">
+                <ul className="columns-1 mt-[4rem]">
+                  {government.children.map((item) => (
+                    <li key={item.id} className="p-2 ">
+                      <a
+                        className="hover:text-pink-500 hover:border-b-2 hover:border-pink-500 text-md"
+                        href={item.url}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ))}
+        </div>
+        <div className="group">
+          {Media.map((media) => (
+            <>
+              <div className="cursor-pointer hover:text-pink-400 relative z-40">
+                <a href={media.url}>{media.title}</a>
+              </div>
+              <div className="min-w-[100vw] hidden left-0 top-0 group-hover:flex justify-center absolute opacity-0 group-hover:opacity-100 bg-white p-8 rounded-b-xl shadow-xl z-30">
+                <ul className="columns-2 mt-[4rem]">
+                  {media.children.map((item) => (
+                    <li key={item.id} className="p-2 ">
+                      <a
+                        className="hover:text-pink-500 hover:border-b-2 hover:border-pink-500 text-md"
+                        href={item.url}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ))}
+        </div>
         <div className="group relative z-40">
-          {BookApppointment.map((appointment) => (
+          {Contact.map((contact) => (
             <div className="cursor-pointer hover:text-pink-400">
-              <a className="" href={appointment.url}>
-                {appointment.title}
+              <a className="" href={contact.url}>
+                {contact.title}
               </a>
             </div>
           ))}

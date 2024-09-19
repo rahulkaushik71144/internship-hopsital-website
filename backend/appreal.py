@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Database URLs
-DATABASE_URL = "sqlite:///./hospital.db"  # Doctors database URL
+DATABASE_URL = "sqlite:///./hospitalnewest.db"  # Doctors database URL
 SPECIALITIES_DATABASE_URL = "sqlite:///./specialities.db"  # Specialities database URL
 
 Base = declarative_base()
@@ -19,7 +19,7 @@ class Doctor(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
     specialization = Column(String, index=True)
-
+    url = Column(String) 
 # Define the Speciality model
 class Speciality(Base):
     __tablename__ = "specialities"
@@ -58,11 +58,21 @@ def search():
 
     # Combine doctors and specialities
     response = {
-        "doctors": [{"id": doctor.id, "name": doctor.name, "specialization": doctor.specialization} for doctor in results],
-        "specialities": [{"id": spec.id, "speciality": spec.speciality} for spec in speciality_results]
+        "doctors": [
+            {
+                "id": doctor.id,
+                "name": doctor.name,
+                "specialization": doctor.specialization,
+                "url": doctor.url  # Include the url in the response
+            } for doctor in results
+        ],
+        "specialities": [
+            {"id": spec.id, "speciality": spec.speciality} for spec in speciality_results
+        ]
     }
     
     return jsonify(response)
+
 
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
