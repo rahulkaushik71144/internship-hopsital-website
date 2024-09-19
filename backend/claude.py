@@ -17,7 +17,7 @@ def search_doctors(query):
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''
-    SELECT DISTINCT d.id, d.name, s.name as specialty
+    SELECT DISTINCT d.id, d.name, s.name as specialization
     FROM doctors d
     JOIN specialties s ON d.specialty_id = s.id
     WHERE d.name LIKE ? OR s.name LIKE ? OR s.keywords LIKE ?
@@ -26,14 +26,27 @@ def search_doctors(query):
     conn.close()
     return results
 
+def search_specialties(query):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+    SELECT DISTINCT id, name as speciality
+    FROM specialties
+    WHERE name LIKE ? OR keywords LIKE ?
+    ''', (f'%{query}%', f'%{query}%'))
+    results = cursor.fetchall()
+    conn.close()
+    return results
+
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('q', '')
-    results = search_doctors(query)
+    doctor_results = search_doctors(query)
+    specialty_results = search_specialties(query)
 
     response = {
-        "doctors": [{"id": row['id'], "name": row['name'], "specialization": row['specialty']} for row in results],
-        "specialities": []  # We'll fill this later if needed
+        "doctors": [{"id": row['id'], "name": row['name'], "specialization": row['specialization']} for row in doctor_results],
+        "specialities": [{"id": row['id'], "speciality": row['speciality']} for row in specialty_results]
     }
     
     return jsonify(response)
@@ -50,16 +63,25 @@ def autocomplete():
     ''', (f'%{query}%',))
     doctor_names = [row['name'] for row in cursor.fetchall()]
 
+    # Query doctor specializations
+    cursor.execute('''
+    SELECT DISTINCT s.name as specialization
+    FROM doctors d
+    JOIN specialties s ON d.specialty_id = s.id
+    WHERE s.name LIKE ? LIMIT 5
+    ''', (f'%{query}%',))
+    doctor_specializations = [row['specialization'] for row in cursor.fetchall()]
+
     # Query specialties
     cursor.execute('''
-    SELECT DISTINCT name FROM specialties WHERE name LIKE ? OR keywords LIKE ? LIMIT 5
+    SELECT DISTINCT name as speciality FROM specialties WHERE name LIKE ? OR keywords LIKE ? LIMIT 5
     ''', (f'%{query}%', f'%{query}%'))
-    specialties = [row['name'] for row in cursor.fetchall()]
+    specialities = [row['speciality'] for row in cursor.fetchall()]
 
     conn.close()
 
-    # Combine doctor names and specialties into suggestions
-    suggestions = doctor_names + specialties
+    # Combine doctor names, specializations, and specialities into suggestions
+    suggestions = doctor_names + doctor_specializations + specialities
 
     return jsonify(suggestions)
 
@@ -82,4 +104,4 @@ def get_counts():
     })
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
