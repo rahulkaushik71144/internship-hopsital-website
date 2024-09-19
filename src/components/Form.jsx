@@ -36,7 +36,7 @@ const Form = () => {
           required
         >
           <option value="" disabled selected>
-            Preferred Hospital Location
+            Preferred Hospital
           </option>
           {OurHospitals.map((hospital) =>
             hospital.children
