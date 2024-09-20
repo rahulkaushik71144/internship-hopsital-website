@@ -86,12 +86,7 @@ export const OurHospitals = [
             imgsource:
               "https://ujalacygnus.com/wp-content/uploads/2022/06/HLD.jpeg",
           },
-          {
-            id: "020204",
-            title: "Ujala Cygnus Sitarganj",
-            url: "https://ujalacygnus.com/sitarganj/",
-            imgsource: null, // No corresponding image found
-          },
+          
         ],
       },
       {
@@ -127,12 +122,7 @@ export const OurHospitals = [
             imgsource:
               "https://ujalacygnus.com/wp-content/uploads/2022/06/Kanpur_hospital.jpg",
           },
-          {
-            id: "020303",
-            title: "Best Hospital in Agra: Your Local Healthcare Partner",
-            url: "https://ujalacygnus.com/agra",
-            imgsource: null, // No corresponding image found
-          },
+         
           {
             id: "020304",
             title: "Best Hospital in Moradabad: Your Local Healthcare Partner",

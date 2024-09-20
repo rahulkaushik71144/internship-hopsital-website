@@ -64,14 +64,14 @@ const HealthBlogs = () => {
                     <div className="h-[165px] w-[250px] xl:w-[250px] xl:h-[165px] bg-pink-400 rounded-t-lg">
                       <img
                         src={blog.img}
-                        alt={blog.title}
+                        alt={blog.Title}
                         className="h-full w-full rounded-t-lg"
                       />
                     </div>
                     <div className="flex-1">
-                      <h1 className="p-4">{blog.title}</h1>
+                      <h1 className="p-4">{blog.Title}</h1>
                       <p className="text-sm p-2 text-gray-600">
-                        {blog.content}
+                        {blog.Excerpt}
                       </p>
                     </div>
                   </div>
