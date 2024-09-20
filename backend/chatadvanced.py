@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
-import sqlalchemy;
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -18,7 +17,7 @@ def search_doctors(query):
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''
-    SELECT d.id, d.name, d.url, s.name as specialty
+    SELECT d.id, d.name, d.url, s.id AS specialty_id, s.name AS specialty
     FROM doctors d
     JOIN specialties s ON d.specialty_id = s.id
     WHERE d.name LIKE ? OR s.name LIKE ? OR s.keywords LIKE ?
@@ -30,13 +29,17 @@ def search_doctors(query):
 
 @app.route('/search', methods=['GET'])
 def search():
-  
+    query = request.args.get('q', '')
+    results = search_doctors(query)
 
-   
+    doctors = [{"id": row['id'], "name": row['name'], "specialization": row['specialty'], "url": row['url']} for row in results]
     
+    # Extract unique specialties
+    specialities = {row['specialty_id']: {"id": row['specialty_id'], "speciality": row['specialty']} for row in results}
+
     response = {
-        "doctors": [{"id": row['id'], "name": row['name'], "specialization": row['specialty'], "url": row['url']} for row in results],
-        "specialities": [] # We'll fill this later if needed
+        "doctors": doctors,
+        "specialities": list(specialities.values())  # Convert back to a list
     }
     
     return jsonify(response)
