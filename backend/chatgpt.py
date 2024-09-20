@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Database file
-DB_FILE = 'doctors_database.db'
+DB_FILE = 'new_database.db'
 
 def get_db_connection():
     conn = sqlite3.connect(DB_FILE)
@@ -17,10 +17,11 @@ def search_doctors(query):
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''
-    SELECT DISTINCT d.id, d.name, s.name as specialty
+    SELECT d.id, d.name, d.url, s.name as specialty
     FROM doctors d
     JOIN specialties s ON d.specialty_id = s.id
     WHERE d.name LIKE ? OR s.name LIKE ? OR s.keywords LIKE ?
+    GROUP BY d.name
     ''', (f'%{query}%', f'%{query}%', f'%{query}%'))
     results = cursor.fetchall()
     conn.close()
@@ -30,7 +31,7 @@ def search_doctors(query):
 def search():
     query = request.args.get('q', '')
     results = search_doctors(query)
-
+    
     response = {
         "doctors": [{"id": row['id'], "name": row['name'], "specialization": row['specialty'], "url": row['url']} for row in results],
         "specialities": []  # We'll fill this later if needed
