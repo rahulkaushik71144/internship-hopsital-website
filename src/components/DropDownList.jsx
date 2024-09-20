@@ -2,7 +2,10 @@ import { useState } from "react";
 import SpecialityList from "../constants/NavBar/our-specialities";
 import Hospitals from "../constants/NavBar/our-hospitals";
 import KeyProcedures from "../constants/NavBar/key-procedures";
-import BookApppointment from "../constants/NavBar/book-appointment";
+import Blogs from "../constants/NavBar/blogs";
+import government, { Government } from "../constants/NavBar/government";
+import Media from "../constants/NavBar/media";
+import Contact from "../constants/NavBar/contact";
 import About from "../constants/NavBar/about";
 import { List, ListItem, ListItemText, Collapse } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -81,6 +84,34 @@ const DropDownList = () => {
       {/* Key Procedures List */}
       <RecursiveList
         items={KeyProcedures}
+        expanded={expanded}
+        handleToggleExpand={handleToggleExpand}
+      />
+
+      {/* Blogs */}
+      <RecursiveList
+        items={Blogs}
+        expanded={expanded}
+        handleToggleExpand={handleToggleExpand}
+      />
+
+      {/* Government */}
+      <RecursiveList
+        items={Government}
+        expanded={expanded}
+        handleToggleExpand={handleToggleExpand}
+      />
+
+      {/* Media */}
+      <RecursiveList
+        items={Media}
+        expanded={expanded}
+        handleToggleExpand={handleToggleExpand}
+      />
+
+      {/* Cnotact */}
+      <RecursiveList
+        items={Contact}
         expanded={expanded}
         handleToggleExpand={handleToggleExpand}
       />
