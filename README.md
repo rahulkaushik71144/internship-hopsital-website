@@ -1,14 +1,14 @@
 # Ujala Cygnus Hospitals - Landing Page Redesign
 
-This project is a redesigned landing page for Ujala Cygnus Hospitals, featuring a modern look and improved user experience. One of the main highlights of the landing page is the inclusion of a search bar to help users easily find information on doctors, services, and specialities. The project was built using Flask for the backend and modern frontend tools to ensure a smooth and responsive experience.
+This project is a redesigned landing page for Ujala Cygnus Hospital, featuring a modern look and improved user experience. One of the main highlights of the landing page is the inclusion of a search bar to help users easily find information on doctors, and specialities. The project was built using Flask for the backend and modern frontend tools to ensure a smooth and responsive experience.
 
 ## Features
 
-- **Search Bar**: Allows users to search for doctors, services, or specialties available at Ujala Cygnus Hospitals.
+- **Search Bar**: Allows users to search for doctors, or specialties available at Ujala Cygnus Hospitals.
 - **Enhanced Design**: A modern and user-friendly layout to improve user interaction and attract more customers.
 - **Mobile Responsiveness**: The design ensures a seamless experience across all devices, including mobile.
 - **Backend**: Built with Flask to handle routing and data management.
-- **Frontend**: Integrated with modern JavaScript libraries to enhance responsiveness and functionality.
+- **Frontend**: Integrated with modern JavaScript libraries such as react to enhance responsiveness and functionality.
 
 ## Setup Instructions
 
@@ -102,19 +102,19 @@ This project is a redesigned landing page for Ujala Cygnus Hospitals, featuring 
 ## Usage
 
 - Access the landing page through your browser after the setup is complete.
-- Use the **search bar** to find specific doctors, services, or specialties.
-- The application runs by default on `localhost:5000` for the backend and `localhost:3000` for the frontend.
+- Use the **search bar** to find specific doctors, or specialties.
+- The application runs by default on `localhost:5000` for the backend and `localhost:5173` for the frontend.
 - When testing on a mobile device, use the IP address of your host machine along with the port number (usually `3000`) to access the page.
 
 ## Technologies Used
 
 - **Flask** for the backend
-- **HTML, CSS, and JavaScript** for the frontend
+- **HTML, CSS, and JavaScript and react** for the frontend
 - **Node.js and npm** for managing frontend dependencies and running the development server
 
-## Contributing
+## Contacting
 
-Feel free to fork this project and submit pull requests if you have suggestions for improving the design or functionality of the landing page.
+Feel free to contact me via email if you have any issues at : rahulkaushik71144@gmail.com
 
 ---
 
