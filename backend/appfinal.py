@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Database file
-DB_FILE = '/home/rahul/Desktop/DesktopSept17-2024/Portfolio/UjalaCygnus/backend/new_database.db'
+DB_FILE = 'newest_database.db'
 
 def get_db_connection():
     conn = sqlite3.connect(DB_FILE)
@@ -27,16 +27,35 @@ def search_doctors(query):
     conn.close()
     return results
 
+def search_specialities(query):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+    SELECT id AS specialty_id, specialty_name AS specialty, url
+    FROM services
+    WHERE specialty_name LIKE ? OR common_names LIKE ?
+    ''', (f'%{query}%', f'%{query}%'))
+    result = cursor.fetchall()
+    conn.close()
+    
+    
+    return result
+
+
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('q', '')
     results = search_doctors(query)
+    result = search_specialities(query)
 
     doctors = [{"id": row['id'], "name": row['name'], "specialization": row['specialty'], "url": row['url']} for row in results]
     
     # Extract unique specialties
-    specialities = {row['specialty_id']: {"id": row['specialty_id'], "speciality": row['specialty']} for row in results}
-
+    specialities = {row['specialty_id']: {
+                        "id": row['specialty_id'], 
+                        "specialty": row['specialty'], 
+                        "url": row['url']
+                    } for row in result}
     response = {
         "doctors": doctors,
         "specialities": list(specialities.values())  # Convert back to a list

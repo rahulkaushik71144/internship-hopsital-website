@@ -149,42 +149,43 @@ const Search = () => {
       ) : (
         (results.doctors.length > 0 || results.specialities.length > 0) && (
           <div className="h-[420px] w-[350px] md:w-[400px] lg:w-[600px] overflow-y-scroll translate-y-[2rem] lg:translate-y-[2rem] absolute bg-white p-14 rounded-xl z-1">
-            {results.doctors.length > 0 && (
-              <>
-                <h2 className="text-lg font-semibold">Doctors</h2>
-                <ul className="mt-2">
-                  {results.doctors.map((doctor) => (
-                    <li
-                      key={doctor.id}
-                      className="p-2 cursor-pointer list-none hover:bg-pink-500 hover:text-white hover:rounded-xl"
-                    >
-                      <a
-                        className="hover:border-b-2 border-pink-500"
-                        href={doctor.url}
-                      >
-                        {doctor.name} - {doctor.specialization}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
             {results.specialities.length > 0 && (
               <>
                 <h2 className="text-lg font-semibold mt-4">Specialities</h2>
                 <ul className="mt-2">
                   {results.specialities.map((speciality) => (
-                    <li
-                      key={speciality.id}
-                      className="p-2 cursor-pointer list-none hover:bg-pink-500 hover:text-white hover:rounded-xl"
+                    <a
+                      className="hover:border-b-2 border-pink-500"
+                      href={speciality.url}
                     >
-                      <a
-                        className="hover:border-b-2 border-pink-500"
-                        href="https://ujalacygnus.com/departments/oncology/"
+                      <li
+                        key={speciality.id}
+                        className="p-2 cursor-pointer list-none hover:bg-pink-500 hover:text-white hover:rounded-xl"
                       >
-                        {speciality.speciality}
-                      </a>
-                    </li>
+                        {speciality.specialty}
+                      </li>
+                    </a>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {results.doctors.length > 0 && (
+              <>
+                <h2 className="text-lg font-semibold">Doctors</h2>
+                <ul className="mt-2">
+                  {results.doctors.map((doctor) => (
+                    <a
+                      className="hover:border-b-2 border-pink-500"
+                      href={doctor.url}
+                    >
+                      <li
+                        key={doctor.id}
+                        className="p-2 cursor-pointer list-none hover:bg-pink-500 hover:text-white hover:rounded-xl"
+                      >
+                        {doctor.name} - {doctor.specialization}
+                      </li>
+                    </a>
                   ))}
                 </ul>
               </>

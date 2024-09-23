@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Database file
-DB_FILE = '/home/rahul/Desktop/DesktopSept17-2024/Portfolio/UjalaCygnus/backend/new_database.db'
+DB_FILE = 'new_database.db'
 
 def get_db_connection():
     conn = sqlite3.connect(DB_FILE)
