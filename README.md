@@ -22,8 +22,8 @@ This project is a redesigned landing page for Ujala Cygnus Hospital, featuring a
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository_url>
-    cd <repository_folder>
+    git clone https://github.com/rahulkaushik71144/internship-hopsital-website.git
+    cd internship-hopsital-website
     ```
 
 2. **Create a Virtual Environment**:
@@ -63,8 +63,8 @@ This project is a redesigned landing page for Ujala Cygnus Hospital, featuring a
 1. **Clone the repository**:
     Open your command prompt and run:
     ```bash
-    git clone <repository_url>
-    cd <repository_folder>
+    git clone https://github.com/rahulkaushik71144/internship-hopsital-website.git
+    cd internship-hopsital-website
     ```
 
 2. **Create a Virtual Environment**:
