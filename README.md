@@ -84,7 +84,7 @@ This project is a redesigned landing page for Ujala Cygnus Hospitals, featuring 
 
 5. **Run the Flask Application**:
     ```bash
-    python app.py
+    python ./backend\app.py
     ```
 
 6. **Install Frontend Dependencies**:
