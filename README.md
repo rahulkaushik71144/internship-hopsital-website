@@ -116,9 +116,10 @@ This project is a redesigned landing page for Ujala Cygnus Hospital, featuring a
 
 ## Contacting
 
-Feel free to contact us via email if you have any issues at: :
-Rahul Kaushik: rahulkaushik71144@gmail.com:
-Chirag Malik: chiragmalik400@gmail.com:
+Feel free to contact us via email if you have any issues:
+
+- **Rahul Kaushik**: [rahulkaushik71144@gmail.com](mailto:rahulkaushik71144@gmail.com)
+- **Chirag Malik**: [chiragmalik400@gmail.com](mailto:chiragmalik400@gmail.com)
 
 
 
