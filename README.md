@@ -111,14 +111,12 @@ This project is a redesigned landing page for Ujala Cygnus Hospital, featuring a
 - **Flask** for the backend
 - **HTML, CSS, and JavaScript and react** for the frontend
 - **Node.js and npm** for managing frontend dependencies and running the development server
+  
+---
 
 ## Contacting
 
 Feel free to contact me via email if you have any issues at : rahulkaushik71144@gmail.com
 
----
 
-### License
-
-This project is licensed under the [MIT License](LICENSE).
 
