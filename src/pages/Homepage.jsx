@@ -9,7 +9,7 @@ import StickyPopup from "../components/StickyPopup";
 
 const Homepage = () => {
   useEffect(() => {
-    document.title = "Home - My Website";
+    document.title = "Home - Ujala Cygnus";
   }, []);
 
   return (
